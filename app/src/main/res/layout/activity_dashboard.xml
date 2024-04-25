@@ -1,0 +1,41 @@
+<!-- activity_dashboard.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Total hours worked -->
+    <TextView
+        android:id="@+id/text_total_hours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Hours Worked:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Projects/tasks assigned -->
+    <TextView
+        android:id="@+id/text_projects_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Projects/Tasks Assigned:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Pending/completed tasks -->
+    <TextView
+        android:id="@+id/text_pending_completed_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pending/Completed Tasks:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Add more TextViews, RecyclerViews, or other UI elements as needed -->
+
+</LinearLayout>
