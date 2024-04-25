@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "POEPart2Example"
+rootProject.name = "TicTrack"
 include(":app")
  

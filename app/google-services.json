@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "142047603529",
-    "project_id": "poepart2opsc",
-    "storage_bucket": "poepart2opsc.appspot.com"
+    "project_number": "731395666192",
+    "project_id": "tictrack-9ab40",
+    "storage_bucket": "tictrack-9ab40.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:142047603529:android:291b6f21c2ec00ed2d4898",
+        "mobilesdk_app_id": "1:731395666192:android:cd951ae2b6c16d0e85f595",
         "android_client_info": {
-          "package_name": "com.example.poepart2example"
+          "package_name": "com.example.tictrack"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD6wJsd4HRIZiMNN5vD1gYEVHaHfZUMH8s"
+          "current_key": "AIzaSyCi-aKE0Vktq2ykdT09f5vKl_a0AprvSts"
         }
       ],
       "services": {
