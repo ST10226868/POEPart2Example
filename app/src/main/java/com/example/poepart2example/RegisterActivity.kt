@@ -1,5 +1,6 @@
 package com.example.poepart2example
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -58,6 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                             .set(user)
                             .addOnSuccessListener {
                                 Toast.makeText(this@RegisterActivity, "Registration successful", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this@RegisterActivity, DashboardActivity::class.java))
                                 finish() // Finish the activity after successful registration
                             }
                             .addOnFailureListener { e ->

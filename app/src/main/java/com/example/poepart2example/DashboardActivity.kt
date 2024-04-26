@@ -1,55 +1,49 @@
 package com.example.poepart2example
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DashboardActivity : AppCompatActivity() {
-
-    private lateinit var auth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        // Initialize Firebase Authentication and Firestore
-        auth = FirebaseAuth.getInstance()
-        firestore = FirebaseFirestore.getInstance()
+        // Initialize views
+        val textViewDate: TextView = findViewById(R.id.text_view_date)
+        val textViewTime: TextView = findViewById(R.id.text_view_time)
+        val buttonCategory: Button = findViewById(R.id.button_category)
+        val buttonTimesheet: Button = findViewById(R.id.button_timesheet)
 
-        // Retrieve user's tracked time, tasks, etc. from Firestore
-        val userId = auth.currentUser?.uid
-        if (userId != null) {
-            // Query to retrieve total hours worked
-            firestore.collection("users").document(userId).get()
-                .addOnSuccessListener { document ->
-                    val totalHoursTextView: TextView = findViewById(R.id.text_total_hours)
-                    val totalHours = document.getDouble("total_hours") ?: 0.0
-                    totalHoursTextView.text = "Total Hours Worked: $totalHours"
-                }
-                .addOnFailureListener { exception ->
-                    // Handle any errors
-                }
+        // Display current date
+        val currentDate = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(Date())
+        textViewDate.text = currentDate
 
-            val projectsTasksTextView: TextView = findViewById(R.id.text_projects_tasks)
-            val projectsTasksList = mutableListOf<String>()
-
-            firestore.collection("projects_tasks").whereEqualTo("userId", userId).get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        val projectTask = document.getString("name") ?: ""
-                        projectsTasksList.add(projectTask)
-                    }
-
-                    // Display the list of projects/tasks assigned
-                    val projectsTasksText = projectsTasksList.joinToString(", ")
-                    projectsTasksTextView.text = "Projects/Tasks Assigned: $projectsTasksText"
+        // Update time every second
+        val timer = Timer()
+        timer.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                runOnUiThread {
+                    val currentTime = SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(Date())
+                    textViewTime.text = currentTime
                 }
-                .addOnFailureListener { exception ->
-                    // Handle any errors
-                }
+            }
+        }, 0, 1000)
+
+        // Button click listeners
+        buttonCategory.setOnClickListener {
+            // Open Category Activity
+            startActivity(Intent(this@DashboardActivity, CategoryActivity::class.java))
+        }
+
+        buttonTimesheet.setOnClickListener {
+            // Open Timesheet Activity
+            startActivity(Intent(this@DashboardActivity, TimesheetActivity::class.java))
         }
     }
 }

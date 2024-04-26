@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         // Login successful, navigate to main activity
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
                         finish() // Finish the login activity
                     } else {
                         // Login failed

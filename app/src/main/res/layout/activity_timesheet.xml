@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Category Spinner -->
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/select_category"/>
+
+    <!-- Description EditText -->
+    <EditText
+        android:id="@+id/edit_text_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"/>
+
+    <!-- Start Date EditText -->
+    <EditText
+        android:id="@+id/edit_text_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Date"/>
+
+    <!-- Start Time EditText -->
+    <EditText
+        android:id="@+id/edit_text_start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Time (HH:MM)"/>
+
+    <!-- Start AM/PM Spinner -->
+    <Spinner
+        android:id="@+id/spinner_start_ampm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- End Date EditText -->
+    <EditText
+        android:id="@+id/edit_text_end_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="End Date"/>
+
+    <!-- End Time EditText -->
+    <EditText
+        android:id="@+id/edit_text_end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="End Time (HH:MM)"/>
+
+    <!-- End AM/PM Spinner -->
+    <Spinner
+        android:id="@+id/spinner_end_ampm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"/>
+</LinearLayout>

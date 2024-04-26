@@ -1,41 +1,49 @@
 <!-- activity_dashboard.xml -->
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".DashboardActivity">
 
-    <!-- Total hours worked -->
+    <!-- Current Date Display -->
     <TextView
-        android:id="@+id/text_total_hours"
-        android:layout_width="match_parent"
+        android:id="@+id/text_view_date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Hours Worked:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
-    <!-- Projects/tasks assigned -->
+    <!-- Current Time Display -->
     <TextView
-        android:id="@+id/text_projects_tasks"
-        android:layout_width="match_parent"
+        android:id="@+id/text_view_time"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Projects/Tasks Assigned:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_below="@id/text_view_date"
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
-    <!-- Pending/completed tasks -->
-    <TextView
-        android:id="@+id/text_pending_completed_tasks"
-        android:layout_width="match_parent"
+    <!-- Category Button -->
+    <Button
+        android:id="@+id/button_category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pending/Completed Tasks:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:text="Category"
+        android:layout_below="@id/text_view_time"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"/>
 
-    <!-- Add more TextViews, RecyclerViews, or other UI elements as needed -->
-
-</LinearLayout>
+    <!-- Timesheet Button -->
+    <Button
+        android:id="@+id/button_timesheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timesheet"
+        android:layout_below="@id/button_category"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
