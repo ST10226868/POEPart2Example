@@ -52,16 +52,33 @@
         android:layout_height="wrap_content"
         android:hint="End Time (HH:MM)"/>
 
+    <EditText
+        android:id="@+id/edit_text_min_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Minimin Daily Goals(hours)"/>
+
+    <EditText
+        android:id="@+id/edit_text_max_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Maximun Daily Goals(hours)"/>
     <!-- End AM/PM Spinner -->
     <Spinner
         android:id="@+id/spinner_end_ampm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/add_photo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        android:text="Add Photo (Optionally)" />
     <!-- Save Button -->
     <Button
         android:id="@+id/save_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"/>
+
+        android:text="Save" />
 </LinearLayout>

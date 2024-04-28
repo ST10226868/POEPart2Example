@@ -27,23 +27,60 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
+    <!-- Welcome Message Display -->
+    <TextView
+        android:id="@+id/text_view_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/text_view_time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
     <!-- Category Button -->
     <Button
         android:id="@+id/button_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category"
         android:layout_below="@id/text_view_time"
-        android:layout_marginTop="32dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="Category" />
 
     <!-- Timesheet Button -->
     <Button
         android:id="@+id/button_timesheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timesheet"
         android:layout_below="@id/button_category"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:text="Timesheet" />
+
+    <!--View record-->
+    <Button
+        android:id="@+id/button_view_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_timesheet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="View Record" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <!-- Navigation Bar -->
+    <Button
+        android:id="@+id/button_sign_out"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Sign Out"
+        android:textColor="@android:color/white" />
+    </LinearLayout>
 </RelativeLayout>
