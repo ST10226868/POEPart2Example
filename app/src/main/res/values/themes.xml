@@ -5,5 +5,17 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <!-- Light Mode Background  -->
+
+    <style name="SCREEN">
+        <item name="android:background">#6976F4</item>
+    </style>
+
+    <!-- Light Mode Text Colour -->
+
+    <style name="TEXT">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="Theme.POEPart2Example" parent="Base.Theme.POEPart2Example" />
 </resources>

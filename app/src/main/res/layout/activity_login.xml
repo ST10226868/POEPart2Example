@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp">
@@ -11,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
-        android:text="Login" />
+        android:text="Login"
+        style="@style/TEXT"/>
 
     <!-- Email EditText -->
     <EditText
@@ -21,7 +24,8 @@
         android:layout_marginTop="250dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        style="@style/TEXT"/>
 
     <!-- Password EditText -->
     <EditText
@@ -32,7 +36,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_below="@id/edit_text_email"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        style="@style/TEXT"/>
 
     <!-- Login Button -->
     <Button

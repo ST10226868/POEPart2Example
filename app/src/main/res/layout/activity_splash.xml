@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
@@ -18,7 +19,8 @@
         android:layout_marginTop="16dp"
         android:text="Tic Track"
         android:textSize="45sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        style="@style/TEXT"/>
 
     <ImageView
 

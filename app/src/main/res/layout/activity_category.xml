@@ -1,8 +1,19 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/CatHeading"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:text="Category"
+        style="@style/TEXT"/>
 
     <!-- Category EditText -->
     <EditText
@@ -10,12 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Enter Category"
-        android:inputType="text"/>
+        android:inputType="text"
+        style="@style/TEXT"/>
 
     <!-- Save Button -->
     <Button
         android:id="@+id/save_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="520dp"
         android:text="Save"/>
 </LinearLayout>
