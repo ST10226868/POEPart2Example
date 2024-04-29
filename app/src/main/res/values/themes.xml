@@ -8,7 +8,7 @@
     <!-- Light Mode Background  -->
 
     <style name="SCREEN">
-        <item name="android:background">#6976F4</item>
+        <item name="android:background">#1C2CC6</item>
     </style>
 
     <!-- Light Mode Text Colour -->

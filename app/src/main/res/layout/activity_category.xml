@@ -6,11 +6,13 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
+    <!--  Category Heading -->
     <TextView
         android:id="@+id/CatHeading"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:textSize="40sp"
         android:text="Category"
         style="@style/TEXT"/>
@@ -20,15 +22,20 @@
         android:id="@+id/edit_text_category"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="75dp"
         android:hint="Enter Category"
         android:inputType="text"
         style="@style/TEXT"/>
 
-    <!-- Save Button -->
-    <Button
-        android:id="@+id/save_button"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
-        android:text="Save"/>
+        android:layout_height="match_parent">
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Save" />
+    </RelativeLayout>
 </LinearLayout>

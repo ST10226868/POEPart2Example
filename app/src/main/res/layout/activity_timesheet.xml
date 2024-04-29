@@ -1,67 +1,110 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Time Sheet Heading -->
+    <TextView
+        android:id="@+id/TSHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Time Sheet"
+        android:textSize="40sp"
+        style="@style/TEXT"/>
+
     <!-- Category Spinner -->
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:prompt="@string/select_category"/>
 
     <!-- Description EditText -->
     <EditText
         android:id="@+id/edit_text_description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description"/>
+        android:layout_height="50dp"
+        android:hint="Description"
+        style="@style/TEXT"/>
 
     <!-- Start Date EditText -->
     <EditText
         android:id="@+id/edit_text_start_date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Start Date"/>
+        android:layout_height="50dp"
+        android:hint="Start Date"
+        style="@style/TEXT"/>
 
     <!-- Start Time EditText -->
     <EditText
         android:id="@+id/edit_text_start_time"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Start Time (HH:MM)"/>
+        android:layout_height="50dp"
+        android:hint="Start Time (HH:MM)"
+        style="@style/TEXT"/>
 
     <!-- Start AM/PM Spinner -->
     <Spinner
         android:id="@+id/spinner_start_ampm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="50dp"/>
 
     <!-- End Date EditText -->
     <EditText
         android:id="@+id/edit_text_end_date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="End Date"/>
+        android:layout_height="50dp"
+        android:hint="End Date"
+        style="@style/TEXT"/>
 
     <!-- End Time EditText -->
     <EditText
         android:id="@+id/edit_text_end_time"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="End Time (HH:MM)"/>
+        android:layout_height="50dp"
+        android:hint="End Time (HH:MM)"
+        style="@style/TEXT"/>
+
+    <EditText
+        android:id="@+id/edit_text_min_goal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter Minimin Daily Goals(hours)"
+        style="@style/TEXT"/>
+
+    <EditText
+        android:id="@+id/edit_text_max_goal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter Maximun Daily Goals(hours)"
+        style="@style/TEXT"/>
 
     <!-- End AM/PM Spinner -->
     <Spinner
         android:id="@+id/spinner_end_ampm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <!-- Save Button -->
+        android:layout_height="50dp"/>
     <Button
-        android:id="@+id/save_button"
+        android:id="@+id/add_photo_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"/>
+        android:text="Add Photo (Optionally)" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Save" />
+    </RelativeLayout>
+
+
 </LinearLayout>
