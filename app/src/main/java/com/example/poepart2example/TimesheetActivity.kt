@@ -1,18 +1,22 @@
 package com.example.poepart2example
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
 import java.util.*
 
 class TimesheetActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
+    private val storage = FirebaseStorage.getInstance()
+
+    private var photoUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +30,9 @@ class TimesheetActivity : AppCompatActivity() {
         val endDateEditText: EditText = findViewById(R.id.edit_text_end_date)
         val endTimeEditText: EditText = findViewById(R.id.edit_text_end_time)
         val endAmPmSpinner: Spinner = findViewById(R.id.spinner_end_ampm)
+        val minGoalEditText: EditText = findViewById(R.id.edit_text_min_goal)
+        val maxGoalEditText: EditText = findViewById(R.id.edit_text_max_goal)
+        val addPhotoButton: Button = findViewById(R.id.add_photo_button)
         val saveButton: Button = findViewById(R.id.save_button)
 
         // Set up category spinner
@@ -52,6 +59,11 @@ class TimesheetActivity : AppCompatActivity() {
         startAmPmSpinner.adapter = ampmAdapter
         endAmPmSpinner.adapter = ampmAdapter
 
+        // Add photo button click listener
+        addPhotoButton.setOnClickListener {
+            openImagePicker()
+        }
+
         // Save button click listener
         saveButton.setOnClickListener {
             val category = categorySpinner.selectedItem.toString()
@@ -60,9 +72,11 @@ class TimesheetActivity : AppCompatActivity() {
             val startTime = "${startTimeEditText.text.toString().trim()} ${startAmPmSpinner.selectedItem}"
             val endDate = endDateEditText.text.toString().trim()
             val endTime = "${endTimeEditText.text.toString().trim()} ${endAmPmSpinner.selectedItem}"
+            val minGoal = minGoalEditText.text.toString().trim()
+            val maxGoal = maxGoalEditText.text.toString().trim()
 
-            if (category.isNotEmpty() && description.isNotEmpty() && startDate.isNotEmpty() && startTime.isNotEmpty() && endDate.isNotEmpty() && endTime.isNotEmpty()) {
-                saveTimesheetToFirestore(category, description, startDate, startTime, endDate, endTime)
+            if (category.isNotEmpty() && description.isNotEmpty() && startDate.isNotEmpty() && startTime.isNotEmpty() && endDate.isNotEmpty() && endTime.isNotEmpty()  && minGoal.isNotEmpty() && maxGoal.isNotEmpty()) {
+                saveTimesheetToFirestore(category, description, startDate, startTime, endDate, endTime ,minGoal,maxGoal)
             } else {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
@@ -86,7 +100,21 @@ class TimesheetActivity : AppCompatActivity() {
             }
     }
 
-    private fun saveTimesheetToFirestore(category: String, description: String, startDate: String, startTime: String, endDate: String, endTime: String) {
+    private val imagePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            // Image selected successfully
+            val data: Intent? = result.data
+            photoUri = data?.data
+        }
+    }
+
+    private fun openImagePicker() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        imagePickerLauncher.launch(intent)
+    }
+
+    private fun saveTimesheetToFirestore(category: String, description: String, startDate: String, startTime: String, endDate: String, endTime: String, minGoal: String, maxGoal: String) {
         // Add timesheet entry to Firestore
         val entry = hashMapOf(
             "category" to category,
@@ -94,18 +122,40 @@ class TimesheetActivity : AppCompatActivity() {
             "startDate" to startDate,
             "startTime" to startTime,
             "endDate" to endDate,
-            "endTime" to endTime
-            // Add more fields as needed
+            "endTime" to endTime,
+            "minGoal" to minGoal,
+            "maxGoal" to maxGoal
+
         )
 
         db.collection("timesheet_entries")
             .add(entry)
-            .addOnSuccessListener {
+            .addOnSuccessListener { documentReference ->
                 Toast.makeText(this, "Timesheet entry saved successfully", Toast.LENGTH_SHORT).show()
+
+                // Upload photo to Firebase Storage if photoUri is not null
+                photoUri?.let {
+                    uploadPhotoToStorage(documentReference.id, it)
+                }
+
                 finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Failed to save timesheet entry: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private fun uploadPhotoToStorage(entryId: String, uri: Uri) {
+        val storageRef = storage.reference
+        val photoRef = storageRef.child("photos").child("$entryId.jpg")
+
+        photoRef.putFile(uri)
+            .addOnSuccessListener { taskSnapshot ->
+                Toast.makeText(this, "Photo uploaded successfully", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Failed to upload photo: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
 }
+

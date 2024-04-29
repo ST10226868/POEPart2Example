@@ -15,6 +15,12 @@
         android:theme="@style/Theme.POEPart2Example"
         tools:targetApi="31">
         <activity
+            android:name=".ViewEntriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewsEntriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".TimesheetActivity"
             android:exported="false" />
         <activity
