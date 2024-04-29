@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:text="Dashboard"
         android:textSize="40sp"
-        style="@style/TEXT"/>
+        android:textColor="@color/white"/>
 
     <!-- Current Date Display -->
     <TextView
@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_date"
         android:textSize="36sp"
-        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         style="@style/TEXT"/>
@@ -45,10 +44,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@android:color/black"
         android:layout_below="@id/text_view_time"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        style="@style/TEXT"/>
 
     <!-- Category Button -->
     <Button
@@ -67,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="40dp"
         android:text="Timesheet" />
 
     <!--View record-->
@@ -79,6 +78,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="View Record" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

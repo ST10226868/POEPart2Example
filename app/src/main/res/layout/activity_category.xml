@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:textSize="40sp"
         android:text="Category"
-        style="@style/TEXT"/>
+        android:textColor="@color/white"/>
 
     <!-- Category EditText -->
     <EditText

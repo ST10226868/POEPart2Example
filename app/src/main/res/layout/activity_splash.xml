@@ -20,7 +20,7 @@
         android:text="Tic Track"
         android:textSize="45sp"
         android:textStyle="bold|italic"
-        style="@style/TEXT"/>
+        android:textColor="@color/white"/>
 
     <ImageView
 

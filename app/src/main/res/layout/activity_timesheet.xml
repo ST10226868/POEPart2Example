@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Time Sheet"
         android:textSize="40sp"
-        style="@style/TEXT"/>
+        android:textColor="@color/white"/>
 
     <!-- Category Spinner -->
     <Spinner

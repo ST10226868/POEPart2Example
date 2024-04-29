@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -14,6 +15,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class DashboardActivity : AppCompatActivity() {
         val buttonViewRecords: Button = findViewById(R.id.button_view_record)
         val buttonSignOut: Button = findViewById(R.id.button_sign_out)
 
+
         // Get the current user's ID
         val userId = auth.currentUser?.uid
 
@@ -43,7 +46,8 @@ class DashboardActivity : AppCompatActivity() {
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
-                    val currentTime = SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(Date())
+                    val currentTime =
+                        SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(Date())
                     textViewTime.text = currentTime
                 }
             }
@@ -73,13 +77,16 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         buttonViewRecords.setOnClickListener {
-            // Open Timesheet Activity
+            // Open ViewEntries Activity
             startActivity(Intent(this@DashboardActivity, ViewEntriesActivity::class.java))
         }
 
         buttonSignOut.setOnClickListener {
-            // Open Timesheet Activity
+            // Sign out and navigate to MainActivity
+            auth.signOut()
             startActivity(Intent(this@DashboardActivity, MainActivity::class.java))
+            finish()
         }
+
     }
 }

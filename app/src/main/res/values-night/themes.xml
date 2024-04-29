@@ -8,13 +8,13 @@
     <!-- Dark Mode Background  -->
 
     <style name="SCREEN">
-        <item name="android:background">#000016</item>
+        <item name="android:background">#280659</item>
     </style>
 
     <!-- Dark Mode Text Colour -->
 
     <style name="TEXT">
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#F54952</item>
     </style>
 
 </resources>

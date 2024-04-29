@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
         android:text="Register"
-        style="@style/TEXT"/>
+        android:textColor="@color/white"/>
 
     <!-- Email EditText -->
     <EditText
