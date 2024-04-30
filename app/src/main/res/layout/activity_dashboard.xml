@@ -8,6 +8,13 @@
     android:padding="16dp"
     tools:context=".DashboardActivity">
 
+    <FrameLayout
+        android:id="@+id/fl_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/SCREEN"
+        android:layout_above="@+id/NavBar"/>
+
     <!-- Dashboard Heading -->
     <TextView
         android:id="@+id/DashboardHeading"
@@ -80,22 +87,15 @@
         android:layout_marginTop="40dp"
         android:text="View Record" />
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        style="@style/SCREEN">
-
         <!-- Navigation Bar -->
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/NavBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/button_nav_menu"/>
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/button_nav_menu"
+            app:backgroundTint="@color/black"/>
+
 
 
 </RelativeLayout>

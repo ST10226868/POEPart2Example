@@ -1,5 +1,6 @@
 package com.example.poepart2example
 
+import android.app.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -18,7 +19,8 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var firestore: FirebaseFirestore
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
@@ -32,6 +34,21 @@ class DashboardActivity : AppCompatActivity() {
         val buttonCategory: Button = findViewById(R.id.button_category)
         val buttonTimesheet: Button = findViewById(R.id.button_timesheet)
         val buttonViewRecords: Button = findViewById(R.id.button_view_record)
+        val homeFragment = HomeFragment()
+        val profileFragment = ProfileFragment()
+        val settingsFragment = SettingsFragment()
+
+        makeCurrentFragment(homeFragment)
+
+        NavBar.setOnNavigationItemSelectListener{
+            when(it.itemId){
+                R.id.ic_home -> makeCurrentFragment(homeFragment)
+                R.id.ic_profile -> makeCurrentFragment(profileFragment)
+                R.id.ic_settings -> makeCurrentFragment(settingsFragment)
+            }
+            true
+        }
+
 
 
         // Get the current user's ID
@@ -81,4 +98,10 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(Intent(this@DashboardActivity, ViewEntriesActivity::class.java))
         }
     }
+
+    private fun makeCurrentFragment(fragment: androidx.fragment.app.Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_wrapper, fragment)
+            commit()
+        }
 }
