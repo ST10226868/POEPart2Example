@@ -13,6 +13,7 @@ import java.util.*
 
 class DashboardActivity : AppCompatActivity() {
 
+
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
@@ -31,7 +32,6 @@ class DashboardActivity : AppCompatActivity() {
         val buttonCategory: Button = findViewById(R.id.button_category)
         val buttonTimesheet: Button = findViewById(R.id.button_timesheet)
         val buttonViewRecords: Button = findViewById(R.id.button_view_record)
-        val buttonSignOut: Button = findViewById(R.id.button_sign_out)
 
 
         // Get the current user's ID
@@ -80,13 +80,5 @@ class DashboardActivity : AppCompatActivity() {
             // Open ViewEntries Activity
             startActivity(Intent(this@DashboardActivity, ViewEntriesActivity::class.java))
         }
-
-        buttonSignOut.setOnClickListener {
-            // Sign out and navigate to MainActivity
-            auth.signOut()
-            startActivity(Intent(this@DashboardActivity, MainActivity::class.java))
-            finish()
-        }
-
     }
 }
