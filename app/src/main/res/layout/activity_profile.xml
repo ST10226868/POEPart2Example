@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SCREEN"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ProfileActivity">
+
+    <!-- Profile Heading -->
+    <TextView
+        android:id="@+id/ProfileHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Profile"
+        android:textSize="40sp"
+        android:textColor="@color/white"/>
+
+    <!-- Welcome Message Display -->
+    <TextView
+        android:id="@+id/text_view_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/ProfileHeading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        style="@style/TEXT"/>
+
+    <Button
+        android:id="@+id/button_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Sign Out"/>
+
+</RelativeLayout>

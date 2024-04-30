@@ -6,25 +6,6 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:text="Dark Mode"
-            android:layout_gravity="center"
-            style="@style/TEXT"/>
-
-        <CheckBox
-            android:id="@+id/toggler"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"/>
-    </LinearLayout>
-
     <!-- Welcome message -->
     <TextView
         android:id="@+id/text_welcome_message"
