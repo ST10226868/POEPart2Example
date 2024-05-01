@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SCREEN"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DashboardFragment">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Dashboard Heading -->
+    <TextView
+        android:id="@+id/DashboardHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Dashboard 2"
+        android:textSize="40sp"
+        android:textColor="@color/white"/>
+
+    <!-- Current Date Display -->
+    <TextView
+        android:id="@+id/text_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/DashboardHeading"
+        style="@style/TEXT"/>
+
+    <!-- Current Time Display -->
+    <TextView
+        android:id="@+id/text_view_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_date"
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        style="@style/TEXT"/>
+
+    <!-- Welcome Message Display -->
+    <TextView
+        android:id="@+id/text_view_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/text_view_time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        style="@style/TEXT"/>
+
+    <!-- Category Button -->
+    <Button
+        android:id="@+id/button_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="Category" />
+
+    <!-- Timesheet Button -->
+    <Button
+        android:id="@+id/button_timesheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Timesheet" />
+
+    <!--View record-->
+    <Button
+        android:id="@+id/button_view_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_timesheet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="View Record" />
+
+</RelativeLayout>
+
+</FrameLayout>

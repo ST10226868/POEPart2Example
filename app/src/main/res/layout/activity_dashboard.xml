@@ -9,93 +9,19 @@
     tools:context=".DashboardActivity">
 
     <FrameLayout
-        android:id="@+id/fl_wrapper"
+        android:id="@+id/frag_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/SCREEN"
-        android:layout_above="@+id/NavBar"/>
+        android:layout_above="@+id/bottom_nav"/>
 
-    <!-- Dashboard Heading -->
-    <TextView
-        android:id="@+id/DashboardHeading"
-        android:layout_width="wrap_content"
+    <!-- Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Dashboard"
-        android:textSize="40sp"
-        android:textColor="@color/white"/>
-
-    <!-- Current Date Display -->
-    <TextView
-        android:id="@+id/text_view_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/DashboardHeading"
-        style="@style/TEXT"/>
-
-    <!-- Current Time Display -->
-    <TextView
-        android:id="@+id/text_view_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_date"
-        android:textSize="36sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        style="@style/TEXT"/>
-
-    <!-- Welcome Message Display -->
-    <TextView
-        android:id="@+id/text_view_welcome_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/text_view_time"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        style="@style/TEXT"/>
-
-    <!-- Category Button -->
-    <Button
-        android:id="@+id/button_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_view_time"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
-        android:text="Category" />
-
-    <!-- Timesheet Button -->
-    <Button
-        android:id="@+id/button_timesheet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_category"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Timesheet" />
-
-    <!--View record-->
-    <Button
-        android:id="@+id/button_view_record"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_timesheet"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="View Record" />
-
-        <!-- Navigation Bar -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/NavBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            app:menu="@menu/button_nav_menu"
-            app:backgroundTint="@color/black"/>
-
-
-
+        android:layout_alignParentBottom="true"
+        android:background="#090909"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#ffff"
+        app:menu="@menu/button_nav_menu"/>
 </RelativeLayout>

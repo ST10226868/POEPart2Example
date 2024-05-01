@@ -1,30 +1,37 @@
-package com.example.poepart2example
+package com.example.poepart2example.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.poepart2example.MainActivity
+import com.example.poepart2example.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         // Initialize Firebase Auth and Firestore
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
         // Initialize views
-        val textViewWelcomeMessage: TextView = findViewById(R.id.text_view_welcome_message)
-        val buttonSignOut: Button = findViewById(R.id.button_sign_out)
+        val textViewWelcomeMessage: TextView = view.findViewById(R.id.text_view_welcome_message)
+        val buttonSignOut: Button = view.findViewById(R.id.button_sign_out)
 
         // Get the current user's ID
         val userId = auth.currentUser?.uid
@@ -45,8 +52,10 @@ class ProfileActivity : AppCompatActivity() {
         buttonSignOut.setOnClickListener {
             // Sign out and navigate to MainActivity
             auth.signOut()
-            startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
-            finish()
+            startActivity(Intent(requireContext(), MainActivity::class.java))
+            requireActivity().finish()
         }
+
+        return view
     }
 }
