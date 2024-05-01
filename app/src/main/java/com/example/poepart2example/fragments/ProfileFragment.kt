@@ -42,7 +42,7 @@ class ProfileFragment : Fragment() {
                 if (document != null && document.exists()) {
                     val firstName = document.getString("firstName")
                     val lastName = document.getString("lastName")
-                    val welcomeMessage = "Welcome $firstName $lastName"
+                    val welcomeMessage = "Goodbye $firstName $lastName, see you soon"
                     textViewWelcomeMessage.text = welcomeMessage
                 }
             }

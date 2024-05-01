@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#090909"
+        android:background="@drawable/rounded_corners"
         app:itemIconTint="#fff"
         app:itemTextColor="#ffff"
         app:menu="@menu/button_nav_menu"/>

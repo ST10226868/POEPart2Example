@@ -20,27 +20,34 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View?
+    {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
 
         toggler = view.findViewById(R.id.toggler)
         sharedPrefs = requireActivity().getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
 
         // Set initial theme based on user preference
-        if (isDarkModeEnabled()) {
+        if (isDarkModeEnabled())
+        {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             toggler.isChecked = true
-        } else {
+        }
+        else
+        {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             toggler.isChecked = false
         }
 
         // Toggle between light and dark mode
         toggler.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
+            if (isChecked)
+            {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 saveDarkModeState(true)
-            } else {
+            }
+            else
+            {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 saveDarkModeState(false)
             }
