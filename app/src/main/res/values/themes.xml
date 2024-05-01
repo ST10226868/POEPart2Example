@@ -8,13 +8,13 @@
     <!-- Light Mode Background  -->
 
     <style name="SCREEN">
-        <item name="android:background">#CA8661</item>
+        <item name="android:background">#5e72eb</item>
     </style>
 
     <!-- Light Mode Text Colour -->
 
     <style name="TEXT">
-        <item name="android:textColor">#FEEAD2</item>
+        <item name="android:textColor">#FFF</item>
     </style>
 
     <style name="Theme.POEPart2Example" parent="Base.Theme.POEPart2Example" />
