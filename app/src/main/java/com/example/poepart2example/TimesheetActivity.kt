@@ -1,6 +1,8 @@
 package com.example.poepart2example
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +17,10 @@ import java.util.*
 class TimesheetActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private val storage = FirebaseStorage.getInstance()
+    private lateinit var startDateEditText: EditText
+    private lateinit var endDateEditText: EditText
+    private lateinit var startTimeEditText: EditText
+    private lateinit var endTimeEditText: EditText
 
     private var photoUri: Uri? = null
 
@@ -24,12 +30,10 @@ class TimesheetActivity : AppCompatActivity() {
 
         val categorySpinner: Spinner = findViewById(R.id.category_spinner)
         val descriptionEditText: EditText = findViewById(R.id.edit_text_description)
-        val startDateEditText: EditText = findViewById(R.id.edit_text_start_date)
-        val startTimeEditText: EditText = findViewById(R.id.edit_text_start_time)
-        val startAmPmSpinner: Spinner = findViewById(R.id.spinner_start_ampm)
-        val endDateEditText: EditText = findViewById(R.id.edit_text_end_date)
-        val endTimeEditText: EditText = findViewById(R.id.edit_text_end_time)
-        val endAmPmSpinner: Spinner = findViewById(R.id.spinner_end_ampm)
+        startDateEditText = findViewById(R.id.edit_text_start_date)
+        endDateEditText = findViewById(R.id.edit_text_end_date)
+        startTimeEditText = findViewById(R.id.edit_text_start_time)
+        endTimeEditText = findViewById(R.id.edit_text_end_time)
         val minGoalEditText: EditText = findViewById(R.id.edit_text_min_goal)
         val maxGoalEditText: EditText = findViewById(R.id.edit_text_max_goal)
         val addPhotoButton: Button = findViewById(R.id.add_photo_button)
@@ -45,33 +49,42 @@ class TimesheetActivity : AppCompatActivity() {
         loadCategories(categories, adapter)
 
         // Set current date as default start date
-        val currentDate = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Date())
-        startDateEditText.setText(currentDate)
-
-        // Set current time as default start time and end time
-        val currentTime = SimpleDateFormat("hh:mm", Locale.getDefault()).format(Date())
-        startTimeEditText.setText(currentTime)
-        endTimeEditText.setText(currentTime)
 
         // Set up AM/PM spinner
-        val ampmAdapter = ArrayAdapter.createFromResource(this, R.array.ampm_array, android.R.layout.simple_spinner_item)
-        ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        startAmPmSpinner.adapter = ampmAdapter
-        endAmPmSpinner.adapter = ampmAdapter
 
         // Add photo button click listener
         addPhotoButton.setOnClickListener {
             openImagePicker()
         }
 
+        startDateEditText.setOnClickListener {
+            startDatePicker()
+        }
+
+
+        endDateEditText.setOnClickListener {
+            EndDatePicker()
+        }
+        startTimeEditText.setOnClickListener {
+            startTimePicker()
+        }
+
+        endTimeEditText.setOnClickListener {
+            EndTimePicker()
+        }
+
+
+
+
+
         // Save button click listener
         saveButton.setOnClickListener {
             val category = categorySpinner.selectedItem.toString()
             val description = descriptionEditText.text.toString().trim()
             val startDate = startDateEditText.text.toString().trim()
-            val startTime = "${startTimeEditText.text.toString().trim()} ${startAmPmSpinner.selectedItem}"
             val endDate = endDateEditText.text.toString().trim()
-            val endTime = "${endTimeEditText.text.toString().trim()} ${endAmPmSpinner.selectedItem}"
+            val startTime = startTimeEditText.text.toString().trim()
+            val endTime = endTimeEditText.text.toString().trim()
             val minGoal = minGoalEditText.text.toString().trim()
             val maxGoal = maxGoalEditText.text.toString().trim()
 
@@ -83,6 +96,70 @@ class TimesheetActivity : AppCompatActivity() {
         }
     }
 
+    private fun startTimePicker() {
+        val timePickerDialog = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                // This lambda function is invoked when a time is set
+                val formattedTime = "$hourOfDay:$minute"
+                startTimeEditText.setText(formattedTime)
+            },
+            0,
+            0,
+            true // If you want the 24-hour view, set this to true, otherwise, set it to false
+        )
+
+        timePickerDialog.show()
+    }
+
+    private fun EndTimePicker() {
+        val timePickerDialog = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                // This lambda function is invoked when a time is set
+                val formattedTime = "$hourOfDay:$minute"
+                endTimeEditText.setText(formattedTime)
+            },
+            0,
+            0,
+            true // If you want the 24-hour view, set this to true, otherwise, set it to false
+        )
+
+        timePickerDialog.show()
+    }
+
+
+    private fun startDatePicker() {
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                // This lambda function is invoked when a date is set
+                val formattedDate = "$year.${month + 1}.$dayOfMonth" // Note: month starts from 0
+                startDateEditText.setText(formattedDate)
+            },
+            2024,
+            0,
+            15
+        )
+
+        datePickerDialog.show()
+    }
+
+    private fun EndDatePicker() {
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                // This lambda function is invoked when a date is set
+                val formattedDate = "$year.${month + 1}.$dayOfMonth" // Note: month starts from 0
+               endDateEditText.setText(formattedDate)
+            },
+            2024,
+            0,
+            15
+        )
+
+        datePickerDialog.show()
+    }
     private fun loadCategories(categories: MutableList<String>, adapter: ArrayAdapter<String>) {
         db.collection("categories")
             .get()
@@ -158,4 +235,3 @@ class TimesheetActivity : AppCompatActivity() {
             }
     }
 }
-
