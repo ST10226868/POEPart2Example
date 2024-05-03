@@ -52,5 +52,9 @@ To run this project, follow these steps:
 * Firebase Firestore
 * Firebase Storage
 
+  # Youtube Link
+  Here is a youtube link that explains the application:
+  https://youtu.be/P1ko5FcDU00
+
 # License
 This project is licensed under the MIT License.
