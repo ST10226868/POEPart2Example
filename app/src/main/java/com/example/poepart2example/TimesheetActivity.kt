@@ -125,6 +125,7 @@ class TimesheetActivity : AppCompatActivity() {
             "endTime" to endTime,
             "minGoal" to minGoal,
             "maxGoal" to maxGoal
+
         )
 
         db.collection("timesheet_entries")
@@ -150,24 +151,11 @@ class TimesheetActivity : AppCompatActivity() {
 
         photoRef.putFile(uri)
             .addOnSuccessListener { taskSnapshot ->
-                // Get the download URL of the uploaded photo
-                photoRef.downloadUrl.addOnSuccessListener { downloadUri ->
-                    // Update the Firestore entry with the photo URL
-                    val downloadUrl = downloadUri.toString()
-                    db.collection("timesheet_entries").document(entryId)
-                        .update("photoUrl", downloadUrl)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Photo URL saved to Firestore", Toast.LENGTH_SHORT).show()
-                        }
-                        .addOnFailureListener { e ->
-                            Toast.makeText(this, "Failed to save photo URL: ${e.message}", Toast.LENGTH_SHORT).show()
-                        }
-                }.addOnFailureListener { e ->
-                    Toast.makeText(this, "Failed to get download URL: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(this, "Photo uploaded successfully", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Failed to upload photo: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 }
+

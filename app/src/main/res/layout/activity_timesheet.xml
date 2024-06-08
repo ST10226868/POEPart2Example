@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/SCREEN"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,81 +12,82 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Time Sheet"
-        android:textSize="40sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
     <!-- Category Spinner -->
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:prompt="@string/select_category"/>
+        android:prompt="@string/select_category" />
 
     <!-- Description EditText -->
     <EditText
         android:id="@+id/edit_text_description"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Description"
-        style="@style/TEXT"/>
+        android:hint="Description" />
 
     <!-- Start Date EditText -->
     <EditText
         android:id="@+id/edit_text_start_date"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Start Date"
-        style="@style/TEXT"/>
+        android:hint="Start Date" />
 
     <!-- Start Time EditText -->
     <EditText
         android:id="@+id/edit_text_start_time"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Start Time (HH:MM)"
-        style="@style/TEXT"/>
+        android:hint="Start Time (HH:MM)" />
 
     <!-- Start AM/PM Spinner -->
     <Spinner
         android:id="@+id/spinner_start_ampm"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp" />
 
     <!-- End Date EditText -->
     <EditText
         android:id="@+id/edit_text_end_date"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="End Date"
-        style="@style/TEXT"/>
+        android:hint="End Date" />
 
     <!-- End Time EditText -->
     <EditText
         android:id="@+id/edit_text_end_time"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="End Time (HH:MM)"
-        style="@style/TEXT"/>
+        android:hint="End Time (HH:MM)" />
 
     <EditText
         android:id="@+id/edit_text_min_goal"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Enter Minimin Daily Goals(hours)"
-        style="@style/TEXT"/>
+        android:hint="Enter Minimin Daily Goals(hours)" />
 
     <EditText
         android:id="@+id/edit_text_max_goal"
+        style="@style/TEXT"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Enter Maximun Daily Goals(hours)"
-        style="@style/TEXT"/>
+        android:hint="Enter Maximun Daily Goals(hours)" />
 
     <!-- End AM/PM Spinner -->
     <Spinner
         android:id="@+id/spinner_end_ampm"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp" />
+
     <Button
         android:id="@+id/add_photo_button"
         android:layout_width="match_parent"
