@@ -66,4 +66,3 @@ class ViewEntriesActivity : AppCompatActivity() {
             }
     }
 }
-
