@@ -24,12 +24,10 @@ class TimesheetActivity : AppCompatActivity() {
 
         val categorySpinner: Spinner = findViewById(R.id.category_spinner)
         val descriptionEditText: EditText = findViewById(R.id.edit_text_description)
-        val startDateEditText: EditText = findViewById(R.id.edit_text_start_date)
-        val startTimeEditText: EditText = findViewById(R.id.edit_text_start_time)
-        val startAmPmSpinner: Spinner = findViewById(R.id.spinner_start_ampm)
-        val endDateEditText: EditText = findViewById(R.id.edit_text_end_date)
-        val endTimeEditText: EditText = findViewById(R.id.edit_text_end_time)
-        val endAmPmSpinner: Spinner = findViewById(R.id.spinner_end_ampm)
+        val startDatePicker: DatePicker = findViewById(R.id.datePicker_start)
+        val startTimePicker: TimePicker = findViewById(R.id.timePicker_start)
+        val endDatePicker: DatePicker = findViewById(R.id.datePicker_end)
+        val endTimePicker: TimePicker = findViewById(R.id.timePicker_end)
         val minGoalEditText: EditText = findViewById(R.id.edit_text_min_goal)
         val maxGoalEditText: EditText = findViewById(R.id.edit_text_max_goal)
         val addPhotoButton: Button = findViewById(R.id.add_photo_button)
@@ -45,19 +43,15 @@ class TimesheetActivity : AppCompatActivity() {
         loadCategories(categories, adapter)
 
         // Set current date as default start date
-        val currentDate = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Date())
-        startDateEditText.setText(currentDate)
+        val currentDate = Calendar.getInstance()
+        startDatePicker.updateDate(currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH))
+        endDatePicker.updateDate(currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH))
 
         // Set current time as default start time and end time
-        val currentTime = SimpleDateFormat("hh:mm", Locale.getDefault()).format(Date())
-        startTimeEditText.setText(currentTime)
-        endTimeEditText.setText(currentTime)
-
-        // Set up AM/PM spinner
-        val ampmAdapter = ArrayAdapter.createFromResource(this, R.array.ampm_array, android.R.layout.simple_spinner_item)
-        ampmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        startAmPmSpinner.adapter = ampmAdapter
-        endAmPmSpinner.adapter = ampmAdapter
+        startTimePicker.currentHour = currentDate.get(Calendar.HOUR_OF_DAY)
+        startTimePicker.currentMinute = currentDate.get(Calendar.MINUTE)
+        endTimePicker.currentHour = currentDate.get(Calendar.HOUR_OF_DAY)
+        endTimePicker.currentMinute = currentDate.get(Calendar.MINUTE)
 
         // Add photo button click listener
         addPhotoButton.setOnClickListener {
@@ -68,15 +62,15 @@ class TimesheetActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val category = categorySpinner.selectedItem.toString()
             val description = descriptionEditText.text.toString().trim()
-            val startDate = startDateEditText.text.toString().trim()
-            val startTime = "${startTimeEditText.text.toString().trim()} ${startAmPmSpinner.selectedItem}"
-            val endDate = endDateEditText.text.toString().trim()
-            val endTime = "${endTimeEditText.text.toString().trim()} ${endAmPmSpinner.selectedItem}"
+            val startDate = "${startDatePicker.month + 1}/${startDatePicker.dayOfMonth}/${startDatePicker.year}"
+            val startTime = "${startTimePicker.currentHour}:${String.format("%02d", startTimePicker.currentMinute)}"
+            val endDate = "${endDatePicker.month + 1}/${endDatePicker.dayOfMonth}/${endDatePicker.year}"
+            val endTime = "${endTimePicker.currentHour}:${String.format("%02d", endTimePicker.currentMinute)}"
             val minGoal = minGoalEditText.text.toString().trim()
             val maxGoal = maxGoalEditText.text.toString().trim()
 
             if (category.isNotEmpty() && description.isNotEmpty() && startDate.isNotEmpty() && startTime.isNotEmpty() && endDate.isNotEmpty() && endTime.isNotEmpty()  && minGoal.isNotEmpty() && maxGoal.isNotEmpty()) {
-                saveTimesheetToFirestore(category, description, startDate, startTime, endDate, endTime ,minGoal,maxGoal)
+                saveTimesheetToFirestore(category, description, startDate, startTime, endDate, endTime, minGoal, maxGoal)
             } else {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
@@ -125,7 +119,6 @@ class TimesheetActivity : AppCompatActivity() {
             "endTime" to endTime,
             "minGoal" to minGoal,
             "maxGoal" to maxGoal
-
         )
 
         db.collection("timesheet_entries")
@@ -178,4 +171,3 @@ class TimesheetActivity : AppCompatActivity() {
         }
     }
 }
-

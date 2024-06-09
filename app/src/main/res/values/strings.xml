@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">POEPart2Example</string>
+    <string name="app_name">Tic Track</string>
     <string name="select_category">Select Category</string>
     <string-array name="ampm_array">
         <item>AM</item>
