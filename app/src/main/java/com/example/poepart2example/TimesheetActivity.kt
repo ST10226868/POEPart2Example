@@ -157,5 +157,25 @@ class TimesheetActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to upload photo: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+    private fun calculateHourDifference(startTime: String, endTime: String): Float {
+        // Define date format
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+
+        return try {
+            // Parse startTime and endTime strings into Date objects
+            val startDate = dateFormat.parse(startTime)
+            val endDate = dateFormat.parse(endTime)
+
+            // Calculate the difference in milliseconds
+            val differenceMillis = endDate.time - startDate.time
+
+            // Convert milliseconds to hours (1 hour = 3600000 milliseconds)
+            differenceMillis.toFloat() / 3600000
+        } catch (e: Exception) {
+            // Handle parsing errors
+            e.printStackTrace()
+            -1f // Return -1 if an error occurs
+        }
+    }
 }
 
