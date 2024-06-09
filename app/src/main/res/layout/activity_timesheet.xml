@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Time Sheet"
+            android:text="Time Sheet1"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:paddingBottom="16dp"/>
