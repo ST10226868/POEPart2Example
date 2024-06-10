@@ -46,6 +46,14 @@ To run this project, follow these steps:
 * Displays a list of timesheet entries retrieved from Firestore.
 * Allows users to view details of timesheet entries.
 * Retrieves and displays associated photos from Firebase Storage.
+* Users can filter the entries by category,start date and end date.
+
+ ## GraphFragment 
+ * when you click the graph navigation it redirect you to a line graph where it will show the hours worked 
+
+# Additional Features 
+* The app now has a feature that will change from light mode to dark mode vice versa
+* 
 
 # Dependencies
 * Firebase Authentication
