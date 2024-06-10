@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SCREEN"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+
+
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/text_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Tic Track"
+        android:textSize="45sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/white"/>
+
+    <ImageView
+
+        android:id="@+id/iv_note"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/tic_track_logo" />
+
+    <!-- Additional Text -->
+    <TextView
+        android:id="@+id/text_additional_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_note"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Loading..."
+        android:textSize="16sp" />
+
+    <!-- Animation: Rotate Loading Indicator -->
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/text_additional_info"
+        android:layout_marginTop="20dp"
+        android:indeterminate="true"
+        android:visibility="visible" />
+
+
+
+</RelativeLayout>
+

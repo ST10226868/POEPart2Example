@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/rounded_dashboard_24"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_display_settings_24"
+        android:title="Display Settings" />
+
+    <item
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="Profile" />
+    <item
+        android:id="@+id/graph"
+        android:icon="@drawable/ic_graph"
+        android:title="Graph"/>
+
+
+</menu>
