@@ -15,7 +15,11 @@ import com.example.poepart2example.ViewEntriesActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
+import java.util.Timer
+import java.util.TimerTask
+
 
 class DashboardFragment : Fragment() {
 
