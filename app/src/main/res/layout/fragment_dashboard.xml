@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:text="Dashboard"
         android:textSize="40sp"
-        android:textColor="@color/white"/>
+       style="@style/TEXT"/>
 
     <!-- Current Date Display -->
     <TextView

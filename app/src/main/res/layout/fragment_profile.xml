@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:text="Profile"
         android:textSize="40sp"
-        android:textColor="@color/white"/>
+        style="@style/TEXT"/>
 
     <!-- Welcome Message Display -->
     <TextView
