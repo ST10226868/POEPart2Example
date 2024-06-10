@@ -53,7 +53,7 @@ To run this project, follow these steps:
 
 # Additional Features 
 * The app now has a feature that will change from light mode to dark mode vice versa
-* 
+*  Category Filter
 
 # Dependencies
 * Firebase Authentication
@@ -62,7 +62,7 @@ To run this project, follow these steps:
 
   # Youtube Link
   Here is a youtube link that explains the application:
-  https://youtu.be/P1ko5FcDU00
+  https://youtu.be/yj1kbDOOSVw
 
 # License
 This project is licensed under the MIT License.
