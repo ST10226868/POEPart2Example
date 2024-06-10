@@ -35,7 +35,7 @@
         android:id="@+id/StartDatePicker"
         android:layout_width="128dp"
         android:layout_height="52dp"
-        android:text="Select Start Date"
+        android:text="Select StartDate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
