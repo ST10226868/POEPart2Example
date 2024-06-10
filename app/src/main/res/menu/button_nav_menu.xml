@@ -16,15 +16,15 @@
         android:title="Display Settings" />
 
     <item
+        android:id="@+id/graph"
+        android:icon="@drawable/outline_auto_graph_24"
+        android:title="Graph"/>
+
+    <item
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_account_circle_24"
         android:title="Profile" />
-    <item
-        android:id="@+id/graph"
-        android:icon="@drawable/ic_graph"
-        android:title="Graph"/>
-
 
 </menu>
